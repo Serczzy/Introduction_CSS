@@ -1,0 +1,177 @@
+/* CODE BY SERGIO ANDRES MUÑOZ MIRANDA */
+
+@import url('https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Parkinsans", sans-serif;
+}
+
+/* NAVIGATION STYLES */
+
+header{
+    width: 100%;
+    min-height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.8), transparent), url(/images/Downtown-Detroit-Skyline-at-Night-Aglow-scaled.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    padding: 0 8%;
+}
+nav{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px 0px;
+    align-items: center;
+
+}
+nav ul{
+    flex: 1;
+    text-align: right;
+    padding-right: 30px;
+}
+nav ul li{
+    list-style: none;
+    display: inline-block;
+    margin: 10px 30px;
+}
+nav ul li a{
+    text-decoration: none;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 15px;
+}
+nav div.logo_box{
+    cursor: pointer;
+}
+nav .logo{
+    text-transform: uppercase;
+    color: #ffffff;
+    font-size: 20px;
+}
+nav div > span{
+    color: #ffffff;
+    font-size: 14px;
+}
+nav .profile{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid #000;
+}
+
+.text_box.index{
+    position: absolute;
+    bottom: 8%;
+}
+.text_box.neighborhood, .text_box.parks{
+    margin-top: 20%;
+}
+.text_box h3{
+    font-size: 50px;
+    text-transform: uppercase;
+    font-weight: 600;
+    line-height: 25px;
+    color: #ffffff;
+}
+.text_box h1{
+    font-size: 110px;
+    line-height: 160px;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 1px #ffffff;
+}
+.text_box p{
+    font-size: 15px;
+    color: #ffffff;
+}
+
+.text_box .row{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+.text_box .row a{
+    text-decoration: none;
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: 2px solid #ffffff;
+    color: #000000;
+    font-size: 14px;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+footer{
+    width: 100%;
+    min-height: 10vh;
+    background-color: #000000;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0px;
+}
+footer .content a{
+    text-decoration: none;
+    color: goldenrod;
+}
+footer .content div{
+    text-align: center;
+    font-size: 14px;
+}
+footer .content div p > span{
+    color: goldenrod;
+}
+
+
+.slider{
+    width: 100%;
+    height: var(--height);
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, #000000 10% 90%, transparent);
+}
+.slider:hover .item{
+    animation-play-state: paused !important;
+    filter: grayscale(1);
+}
+.slider .item:hover{
+    filter: grayscale(0);
+}
+.slider .list{
+    display: flex;
+    width: 100%;
+    min-width: calc(var(--width) * var(--quantity));
+    position: relative;
+}
+.slider .list .item{
+    width: var(--width);
+    height: var(--height);
+    position: absolute;
+    left: 100%;
+    animation: autoRun 10s linear infinite;
+    animation-delay: calc((10s / var(--quantity)) * (var(--position) - 1));
+    transition: filter 0.5s;
+    cursor: pointer;
+}
+.slider .list .item img{
+    width: 100%;
+}
+
+@keyframes autoRun{
+    from{
+        left: 100%;
+    }
+    to{
+        left: calc(var(--width) * -1);
+    }
+}
+
