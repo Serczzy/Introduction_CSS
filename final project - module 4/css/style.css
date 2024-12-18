@@ -1,0 +1,402 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Parkinsans:wght@300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Outfit", serif;
+}
+
+/* HEADER */
+
+.header,
+.header.galeria,
+.header.personajes{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.5)), url(../img/background1.jpg);
+    background-position: center;
+    background-size: cover;
+    padding: 0 8%;
+}
+.header.personajes{
+    background-image: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.1)), url(../img/background6.png);
+}
+.header.galeria{
+    background-image: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.6)), url(../img/background7.jpg);
+}
+nav{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 5px 0px;
+}
+nav ul{
+    flex: 1;
+    text-align: right;
+    padding-right: 30px;
+}
+nav ul li{
+    display: inline-block;
+    margin: 10px 30px;
+    list-style: none;
+}
+nav ul li a{
+    text-decoration: none;
+    color: #ffffff;
+    text-transform: capitalize;
+    position: relative;
+    font-size: 16px;
+}
+nav ul li a::after{
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 3px;
+    background: #ffffff;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: width .3s;
+}
+nav ul li a:hover::after{
+    width: 50%;
+}
+.main_logo{
+    width: 220px;
+    cursor: pointer;
+}
+.sub_logo{
+    width: 80px;
+    cursor: pointer;
+}
+
+.text_box{
+    position: absolute;
+    color: #ffffff;
+    bottom: 40px;
+}
+.text_box p{
+    font-size: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.text_box h1{
+    font-size: 190px;
+    line-height: 160px;
+    margin-left: -10px;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 2px #ffffff;
+    background-image: url(../img/back.png);
+    background-clip: text;
+    background-position: 0 0;
+    animation: back 20s linear infinite;
+}
+@keyframes back{
+    100%{
+        background-position: 2000px 0px;
+    }
+}
+.text_box h3{
+    font-size: 40px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.text_box .row{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+.text_box .row a{
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 16px;
+    border: 2px solid #ffffff;
+    padding: 10px 20px;
+    margin-right: 20px;
+    transition: background-color .3s;
+}
+.text_box .row a:hover{
+    background-color: #efb810;
+    color: #000000;
+    transform: scale(1.1);
+    transition: .3s ease-in-out;
+    border: 2px solid #efb810;
+}
+
+/* SLIDER */
+
+.slider{
+    width: 100%;
+    height: var(--height);
+    overflow: hidden;
+    mask-image: linear-gradient( to right, transparent, #000000 10% 90%, transparent)
+}
+.slider .list{
+    width: 100%;
+    display: flex;
+    min-width: calc(var(--width) * var(--quantity));
+    position: relative;
+}
+.slider .list .item{
+    width: var(--width);
+    height: var(--height);
+    position: absolute;
+    left: 100%;
+    animation: autoRun 10s linear infinite;
+    animation-delay: calc( (10s / var(--quantity)) * (var(--position) - 1 ))!important;
+    transition: filter 0.5s;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@keyframes autoRun{
+    from{
+        left: 100%;
+    }
+    to{
+        left: calc(var(--width) * -1);
+    }
+}
+.slider .list .item img{
+    width: 100%;
+}
+.slider:hover .item{
+    animation-play-state: paused!important;
+    filter: grayscale(1);
+}
+.slider .list .item:hover{
+    filter: grayscale(0);
+}
+
+/* ABOUT THE ANIME */
+
+
+.aboutAnime{
+    width: 100%;
+    background-color: #efb810;
+}
+.about{
+    position: relative;
+    width: 100%;
+    background-image: url(../img/background3.jpg);
+    background-size: cover;
+    background-position: 390px -100px;
+}
+.about .text_box_about{
+    position: relative;
+    width: 60%;
+    height: 75vh;
+    background-color: #bac9c0;
+    clip-path: polygon(0 0, 89% 0, 82% 100%, 0% 100%);
+    display: flex;
+    align-items: center;
+}
+.about .text_box_about .text{
+    width: 85%;
+    height: 80%;
+    padding: 25px 30px;
+}
+.about .text_box_about .text h2{
+    text-align: center;
+    font-size: 45px;
+}
+.about .text_box_about .text p{
+    padding: 20px 100px;
+    text-align: center;
+    font-size: 17px;
+}
+.about .text_box_about .text .button{
+    width: 100%;
+    text-align: center;
+}
+.about .text_box_about .text a{
+    display: inline-block;
+    text-decoration: none;
+    padding: 15px 25px;
+    margin-top: 40px;
+    background-color: #efb810;
+    color: #000000;
+    border-radius: 10px;
+}
+
+.mini_cards{
+    width: 100%;
+    height: 150px;
+    display: flex;
+}
+.mini_cards .card{
+    width: 40%;
+    height: auto;
+    background-color: gray;
+    margin: 0px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+    padding: 15px 15px;
+    cursor: pointer;
+}
+.mini_cards .card p{
+    padding: 0px!important;
+}
+.mini_cards .card p:nth-child(1){
+    font-size: 50px;
+    font-weight: 600;
+}
+
+/* FOOTER */
+
+footer{
+    width: 100%;
+    height: 100px;
+    background-color: #000000;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* --- CHARACTERS INTERFACE STYLES  --- */
+
+.characters{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 6%;
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(../img/background4.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.grid_box{
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    display: grid;
+    grid-template-columns: 60% 40%;
+    gap: 10px;
+    padding: 10px;
+}
+.grid_box .item{
+    text-align: center;
+    background-color: #333333;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: transform 0.3s;
+    color: #ffffff;
+}
+.grid_box .item.first:hover{
+    background-color: #333333!important;
+    transform: translateY(0px)!important;
+}
+.grid_box .item:hover{
+    transform: translateY(-3px);
+    background-color: #000000;
+}
+.grid_box .item .main{
+    text-align: left;
+    width: 100%;
+    height: 70%;
+    background-image: linear-gradient(rgba(0,0,0,0.5), transparent), url(../img/attack_titan.jpg);
+    background-position: center;
+    background-size: cover;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.grid_box .item .sub.active{
+    text-align: left;
+    width: 100%;
+    height: 30%;
+    padding: 15px;
+}
+.grid_box .item .sub.active .title{
+    padding-bottom: 15px;
+}
+.grid_box .item .sub.active .sub_title{
+    display: flex;
+    align-items: center;
+}
+.grid_box .item .sub.active .sub_title img{
+    width: 50px;
+}
+.grid_box .item:nth-child(1){
+    grid-row: 1 / span 4;
+}
+
+.grid_box .item.second .sub,
+.grid_box .item.third .sub,
+.grid_box .item.fourth .sub,
+.grid_box .item.fifth .sub{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0px 20px;
+    text-align: left;
+    color: #ffffff;
+}
+.grid_box .item.second,
+.grid_box .item.third,
+.grid_box .item.fourth,
+.grid_box .item.fifth{
+    display: flex;
+    align-items: center;
+}
+.grid_box .item.second .img_2{
+    width: 40%;
+    height: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.5), transparent), url(../img/titan_acorazado.jpg);
+    background-position: center;
+    background-size: cover;
+    border-radius: 8px;
+}
+.grid_box .item.third .img_3{
+    width: 40%;
+    height: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.5), transparent), url(../img/titan_mandibula.jpg);
+    background-position: center;
+    background-size: cover;
+    border-radius: 8px;
+}
+.grid_box .item.fourth .img_4{
+    width: 40%;
+    height: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.5), transparent), url(../img/titan_bestia.png);
+    background-position: center;
+    background-size: cover;
+    border-radius: 8px;
+}
+.grid_box .item.fifth .img_5{
+    width: 40%;
+    height: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.5), transparent), url(../img/titan_carguero.jpg);
+    background-position: center;
+    background-size: cover;
+    border-radius: 8px;
+}
+
+
+.gallery img{
+    width: 100%;
+    margin-bottom: 1em;
+}
+.back_gallery{
+    width: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.5), transparent), url(../img/background4.png);
+    background-position: center;
+    background-size: cover;
+}
+.gallery{
+    width: 80%;
+    columns: 300px;
+    margin: 0 auto;
+}
